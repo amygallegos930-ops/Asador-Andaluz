@@ -4,8 +4,11 @@
     justify-content: space-between;
     align-items: center;
 }
-.navbar .logo{
-    width: 150px;
+.navbar .brand-name{
+    color: #ff4c24;
+    font-family: "Lobster", cursive;
+    font-size: 30px;
+    white-space: nowrap;
 }
 
 .navbar-menu{
@@ -90,8 +93,8 @@
     color: tomato;
 }
 @media (max-width:1050px) {
-    .navbar .logo{
-        width: 140px;
+    .navbar .brand-name{
+        font-size: 28px;
     } 
     .navbar-menu{
         gap: 20px;
@@ -108,8 +111,8 @@
     }
 }
 @media (max-width:900px) {
-    .navbar .logo{
-        width: 120px;
+    .navbar .brand-name{
+        font-size: 25px;
     } 
     .navbar-menu{
         gap: 15px;
@@ -127,6 +130,16 @@
     }
 }
 @media (max-width:750px) { 
+    .navbar .brand-name{
+        font-size: 22px;
+    }
+    .navbar-right{
+        gap: 12px;
+    }
+    .navbar-right button{
+        padding: 7px 12px;
+        font-size: 13px;
+    }
     .navbar-menu{
         display: none;
     }

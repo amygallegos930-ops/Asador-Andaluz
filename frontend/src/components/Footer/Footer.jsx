@@ -7,7 +7,7 @@ const Footer = () => {
     <div className="footer" id="footer">
       <div className="footer-content">
         <div className="footer-content-left">
-          <img src={assets.logo} alt="" />
+          <span className="footer-brand">Asador Andaluz</span>
           <p>
             Disfruta de una amplia selección de platos preparados con
             ingredientes frescos y entregados a la puerta de tu hogar.
@@ -37,7 +37,7 @@ const Footer = () => {
       </div>
       <hr />
       <p className="footer-copyright">
-        Copyright 2024 @ Tomato.com - Todos los derechos reservados.
+        © 2026 Asador Andaluz - Todos los derechos reservados.
       </p>
     </div>
   );

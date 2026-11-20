@@ -18,7 +18,7 @@ const Navbar = () => {
   }
   return (
     <div className="navbar">
-      <img className="logo" src={assets.logo} alt="" />
+      <p className="brand-name">Asador Andaluz</p>
       {token && admin ? (
         <p className="login-conditon" onClick={logout}>Logout</p>
       ) : (
