@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import "./FoodItem.css";
 import { assets } from "../../assets/frontend_assets/assets";
 import { StoreContext } from "../../context/StoreContext";
+import { translateDescription, translateName } from "../../utils/translations";
 
 const FoodItem = ({ id, name, price, description, image }) => {
   const {cartItems,addToCart,removeFromCart,url}=useContext(StoreContext); 
@@ -27,10 +28,10 @@ const FoodItem = ({ id, name, price, description, image }) => {
       </div>
       <div className="food-item-info">
         <div className="food-item-name-rating">
-          <p>{name}</p>
+          <p>{translateName(name)}</p>
           <img src={assets.rating_starts} alt="" />
         </div>
-        <p className="food-item-desc">{description}</p>
+        <p className="food-item-desc">{translateDescription(description)}</p>
         <p className="food-item-price">${price}</p>
       </div>
     </div>

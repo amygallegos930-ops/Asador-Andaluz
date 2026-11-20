@@ -23,9 +23,9 @@ const StoreContextProvider = (props) => {
         { headers: { token } }
       );
       if(response.data.success){
-        toast.success("item Added to Cart")
+        toast.success("Producto añadido al carrito")
       }else{
-        toast.error("Something went wrong")
+        toast.error("Ha ocurrido un error")
       }
     }
   };
@@ -39,9 +39,9 @@ const StoreContextProvider = (props) => {
         { headers: { token } }
       );
       if(response.data.success){
-        toast.success("item Removed from Cart")
+        toast.success("Producto eliminado del carrito")
       }else{
-        toast.error("Something went wrong")
+        toast.error("Ha ocurrido un error")
       }
     }
   };
@@ -62,7 +62,7 @@ const StoreContextProvider = (props) => {
     if (response.data.success) {
       setFoodList(response.data.data);
     } else {
-      alert("Error! Products are not fetching..");
+      alert("Error: no se pudieron cargar los productos.");
     }
   };
 

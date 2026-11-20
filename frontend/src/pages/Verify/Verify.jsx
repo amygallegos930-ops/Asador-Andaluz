@@ -16,9 +16,9 @@ const Verify = () => {
         const response= await axios.post(url+"/api/order/verify",{success,orderId});
         if(response.data.success){
             navigate("/myorders");
-            toast.success("Order Placed Successfully");
+            toast.success("Pedido realizado correctamente");
         }else{
-            toast.error("Something went wrong");
+            toast.error("Ha ocurrido un error");
             navigate("/");
         }
     }

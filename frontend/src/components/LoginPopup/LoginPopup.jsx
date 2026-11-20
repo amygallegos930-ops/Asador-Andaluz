@@ -32,7 +32,7 @@ const LoginPopup = ({ setShowLogin }) => {
     if (response.data.success) {
       setToken(response.data.token);
       localStorage.setItem("token", response.data.token);
-      toast.success("Login Successfully")
+      toast.success("Sesión iniciada correctamente")
       setShowLogin(false);
     }else{
       toast.error(response.data.message);
@@ -42,7 +42,7 @@ const LoginPopup = ({ setShowLogin }) => {
     <div className="login-popup">
       <form onSubmit={onLogin} className="login-popup-container">
         <div className="login-popup-title">
-          <h2>{currentState}</h2>
+          <h2>{currentState === "Login" ? "Iniciar sesión" : "Crear cuenta"}</h2>
           <img
             onClick={() => setShowLogin(false)}
             src={assets.cross_icon}
@@ -58,7 +58,7 @@ const LoginPopup = ({ setShowLogin }) => {
               onChange={onChangeHandler}
               value={data.name}
               type="text"
-              placeholder="Your name"
+              placeholder="Tu nombre"
               required
             />
           )}
@@ -67,7 +67,7 @@ const LoginPopup = ({ setShowLogin }) => {
             onChange={onChangeHandler}
             value={data.email}
             type="email"
-            placeholder="Your email"
+            placeholder="Tu correo electrónico"
             required
           />
           <input
@@ -75,26 +75,26 @@ const LoginPopup = ({ setShowLogin }) => {
             onChange={onChangeHandler}
             value={data.password}
             type="password"
-            placeholder="Your password"
+            placeholder="Tu contraseña"
             required
           />
         </div>
         <button type="submit">
-          {currentState === "Sign Up" ? "Create Account" : "Login"}
+          {currentState === "Sign Up" ? "Crear cuenta" : "Iniciar sesión"}
         </button>
         <div className="login-popup-condition">
           <input type="checkbox" required />
-          <p>By continuing, i agree to the terms of use & privacy policy.</p>
+          <p>Al continuar, acepto los términos de uso y la política de privacidad.</p>
         </div>
         {currentState === "Login" ? (
           <p>
-            Create a new account?{" "}
-            <span onClick={() => setCurrentState("Sign Up")}>Click here</span>
+            ¿Crear una cuenta nueva?{" "}
+            <span onClick={() => setCurrentState("Sign Up")}>Haz clic aquí</span>
           </p>
         ) : (
           <p>
-            Already have an account?{" "}
-            <span onClick={() => setCurrentState("Login")}>Login here</span>
+            ¿Ya tienes una cuenta?{" "}
+            <span onClick={() => setCurrentState("Login")}>Inicia sesión aquí</span>
           </p>
         )}
       </form>

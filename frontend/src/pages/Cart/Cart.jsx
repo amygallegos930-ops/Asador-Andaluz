@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import "./Cart.css";
 import { StoreContext } from "../../context/StoreContext";
 import { useNavigate } from "react-router-dom";
+import { translateName } from "../../utils/translations";
 
 const Cart = () => {
   const {
@@ -20,12 +21,12 @@ const Cart = () => {
     <div className="cart">
       <div className="cart-items">
         <div className="cart-items-title">
-          <p>Items</p>
-          <p>Title</p>
-          <p>Price</p>
-          <p>Quantity</p>
+          <p>Producto</p>
+          <p>Nombre</p>
+          <p>Precio</p>
+          <p>Cantidad</p>
           <p>Total</p>
-          <p>Remove</p>
+          <p>Eliminar</p>
         </div>
         <br />
         <hr />
@@ -35,7 +36,7 @@ const Cart = () => {
               <div>
                 <div className="cart-items-title cart-items-item">
                   <img src={url+"/images/"+item.image} alt="" />
-                  <p>{item.name}</p>
+                  <p>{translateName(item.name)}</p>
                   <p>${item.price}</p>
                   <p>{cartItems[item._id]}</p>
                   <p>${item.price * cartItems[item._id]}</p>
@@ -51,15 +52,15 @@ const Cart = () => {
       </div>
       <div className="cart-bottom">
         <div className="cart-total">
-          <h2>Cart Totals</h2>
+          <h2>Totales del carrito</h2>
           <div>
             <div className="cart-total-details">
-              <p>Subtotals</p>
+              <p>Subtotal</p>
               <p>${getTotalCartAmount()}</p>
             </div>
             <hr />
             <div className="cart-total-details">
-              <p>Delivery Fee</p>
+              <p>Gastos de envío</p>
               <p>${getTotalCartAmount()===0?0:2}</p>
             </div>
             <hr />
@@ -68,14 +69,14 @@ const Cart = () => {
               <b>${getTotalCartAmount()===0?0:getTotalCartAmount()+2}</b>
             </div>
           </div>
-          <button onClick={()=>navigate('/order')}>PROCEED TO CHECKOUT</button>
+          <button onClick={()=>navigate('/order')}>PROCEDER AL PAGO</button>
         </div>
         <div className="cart-promocode">
           <div>
-            <p>If you have a promocode, Enter it here</p>
+            <p>Si tienes un código promocional, introdúcelo aquí</p>
             <div className="cart-promocode-input">
-              <input type="text" placeholder="promo code" />
-              <button>Submit</button>
+              <input type="text" placeholder="código promocional" />
+              <button>Aplicar</button>
             </div>
           </div>
         </div>

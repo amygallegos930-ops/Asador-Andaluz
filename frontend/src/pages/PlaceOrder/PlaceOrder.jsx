@@ -49,24 +49,24 @@ const PlaceOrder = () => {
       const {session_url}=response.data;
       window.location.replace(session_url);
     }else{
-      toast.error("Errors!")
+      toast.error("Ha ocurrido un error")
     }
   };
 
   useEffect(()=>{
     if(!token){
-      toast.error("Please Login first")
+      toast.error("Inicia sesión primero")
       navigate("/cart")
     }
     else if(getTotalCartAmount()===0){
-      toast.error("Please Add Items to Cart");
+      toast.error("Añade productos al carrito");
       navigate("/cart")
     }
   },[token])
   return (
     <form className="place-order" onSubmit={placeOrder}>
       <div className="place-order-left">
-        <p className="title">Delivery Information</p>
+        <p className="title">Información de entrega</p>
         <div className="multi-fields">
           <input
             required
@@ -74,7 +74,7 @@ const PlaceOrder = () => {
             value={data.firstName}
             onChange={onChangeHandler}
             type="text"
-            placeholder="First name"
+            placeholder="Nombre"
           />
           <input
             required
@@ -82,7 +82,7 @@ const PlaceOrder = () => {
             value={data.lastName}
             onChange={onChangeHandler}
             type="text"
-            placeholder="Last name"
+            placeholder="Apellidos"
           />
         </div>
         <input
@@ -91,7 +91,7 @@ const PlaceOrder = () => {
           value={data.email}
           onChange={onChangeHandler}
           type="text"
-          placeholder="Email Address"
+          placeholder="Correo electrónico"
         />
         <input
           required
@@ -99,7 +99,7 @@ const PlaceOrder = () => {
           value={data.street}
           onChange={onChangeHandler}
           type="text"
-          placeholder="Street"
+          placeholder="Dirección"
         />
         <div className="multi-fields">
           <input
@@ -108,7 +108,7 @@ const PlaceOrder = () => {
             value={data.city}
             onChange={onChangeHandler}
             type="text"
-            placeholder="City"
+            placeholder="Ciudad"
           />
           <input
             required
@@ -116,7 +116,7 @@ const PlaceOrder = () => {
             value={data.state}
             onChange={onChangeHandler}
             type="text"
-            placeholder="State"
+            placeholder="Provincia"
           />
         </div>
         <div className="multi-fields">
@@ -126,7 +126,7 @@ const PlaceOrder = () => {
             value={data.zipcode}
             onChange={onChangeHandler}
             type="text"
-            placeholder="Zip Code"
+            placeholder="Código postal"
           />
           <input
             required
@@ -134,7 +134,7 @@ const PlaceOrder = () => {
             value={data.country}
             onChange={onChangeHandler}
             type="text"
-            placeholder="Country"
+            placeholder="País"
           />
         </div>
         <input
@@ -143,20 +143,20 @@ const PlaceOrder = () => {
           value={data.phone}
           onChange={onChangeHandler}
           type="text"
-          placeholder="Phone"
+          placeholder="Teléfono"
         />
       </div>
       <div className="place-order-right">
         <div className="cart-total">
-          <h2>Cart Totals</h2>
+          <h2>Totales del carrito</h2>
           <div>
             <div className="cart-total-details">
-              <p>Subtotals</p>
+              <p>Subtotal</p>
               <p>${getTotalCartAmount()}</p>
             </div>
             <hr />
             <div className="cart-total-details">
-              <p>Delivery Fee</p>
+              <p>Gastos de envío</p>
               <p>${getTotalCartAmount() === 0 ? 0 : 2}</p>
             </div>
             <hr />
@@ -167,7 +167,7 @@ const PlaceOrder = () => {
               </b>
             </div>
           </div>
-          <button type="submit">PROCEED TO PAYMENT</button>
+          <button type="submit">PROCEDER AL PAGO</button>
         </div>
       </div>
     </form>
